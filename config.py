@@ -11,6 +11,9 @@ class Config:
     API_HASH = os.getenv('API_HASH', '')
     SESSION_NAME = os.getenv('SESSION_NAME', 'rotenberg_session')
 
+      # ДОБАВЬ ЭТУ СТРОКУ ↓↓↓
+    SESSION_STRING = os.getenv('SESSION_STRING', '')
+    
     # Настройки ответов
     TYPING_DELAY_MIN = 0.5  # Минимальная задержка перед ответом (сек)
     TYPING_DELAY_MAX = 4.5  # Максимальная задержка
@@ -22,4 +25,8 @@ class Config:
             raise ValueError("❌ API_ID не найден в .env файле")
         if not cls.API_HASH:
             raise ValueError("❌ API_HASH не найден в .env файле")
+
         print("✅ Конфигурация загружена успешно")
+
+    
+    # ... остальное без изменений
