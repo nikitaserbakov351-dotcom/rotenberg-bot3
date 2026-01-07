@@ -1,13 +1,5 @@
 [build]
 builder = "nixpacks"
-buildCommand = "pip install -r requirements.txt"
 
 [deploy]
 startCommand = "python main.py"
-healthcheckPath = "/"
-healthcheckTimeout = 100
-
-[variables]
-# Опционально: можно задать переменные здесь, но лучше через панель Railway
-# API_ID = "34855836"
-# API_HASH = "505884cacfad99610d616c2bc1e200d4"
