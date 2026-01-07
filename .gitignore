@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+*.session
+*.log
+RAILWAY_SESSION.txt
+SESSION_STRING.txt
+rotenberg_session*
