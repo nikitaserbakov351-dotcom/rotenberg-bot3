@@ -29,6 +29,17 @@ class TelegramClientHandler:
         """Запуск клиента"""
         try:
             print("🔧 Инициализация Telegram клиента...")
+            from telethon.sessions import StringSession
+
+            # ДОБАВЬ ПРОВЕРКУ НА СТРОКОВУЮ СЕССИЮ
+            if hasattr(self.config, 'SESSION_STRING') and self.config.SESSION_STRING:
+                # Используем строковую сессию для Railway
+                session = StringSession(self.config.SESSION_STRING)
+                print("✅ Используем строковую сессию (Railway)")
+            else:
+                # Используем файловую сессию для локальной разработки
+                session = self.config.SESSION_NAME
+                print(f"✅ Используем файловую сессию: {session}")
 
             self.client = TelegramClient(
                 session=self.config.SESSION_NAME,
@@ -243,4 +254,5 @@ class TelegramClientHandler:
         self.is_running = False
         if self.client:
             await self.client.disconnect()
+
         logger.info("🛑 Бот остановлен")
